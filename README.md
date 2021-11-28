@@ -11,3 +11,6 @@ I will try to add more features to this plugin over time.
 
 ---------------------------------------------------------
 
+![This is an image](AOBSignatureGenerator/ss1.jpg)!
+
+[This is an image](AOBSignatureGenerator/ss2.jpg)
