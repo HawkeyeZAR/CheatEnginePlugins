@@ -1,0 +1,9 @@
+C:\Users\HawkeyeZAR\Documents\Visual Studio 2022\Projects\CheatEnginePlugins\AOBSignatureGenerator\obj\Debug\AOBSignatureGenerator.csproj.AssemblyReference.cache
+C:\Users\HawkeyeZAR\Documents\Visual Studio 2022\Projects\CheatEnginePlugins\AOBSignatureGenerator\obj\Debug\AOBSignatureGenerator.SignatureGeneratorForm.resources
+C:\Users\HawkeyeZAR\Documents\Visual Studio 2022\Projects\CheatEnginePlugins\AOBSignatureGenerator\obj\Debug\AOBSignatureGenerator.csproj.GenerateResource.cache
+C:\Users\HawkeyeZAR\Documents\Visual Studio 2022\Projects\CheatEnginePlugins\AOBSignatureGenerator\obj\Debug\AOBSignatureGenerator.csproj.CoreCompileInputs.cache
+C:\Users\HawkeyeZAR\Documents\Visual Studio 2022\Projects\CheatEnginePlugins\AOBSignatureGenerator\bin\Debug\AOBSignatureGenerator.dll
+C:\Users\HawkeyeZAR\Documents\Visual Studio 2022\Projects\CheatEnginePlugins\AOBSignatureGenerator\bin\Debug\AOBSignatureGenerator.pdb
+C:\Users\HawkeyeZAR\Documents\Visual Studio 2022\Projects\CheatEnginePlugins\AOBSignatureGenerator\obj\Debug\AOBSignatureGenerator.dll
+C:\Users\HawkeyeZAR\Documents\Visual Studio 2022\Projects\CheatEnginePlugins\AOBSignatureGenerator\obj\Debug\AOBSignatureGenerator.pdb
+C:\Users\HawkeyeZAR\Documents\Visual Studio 2022\Projects\CheatEnginePlugins\AOBSignatureGenerator\obj\Debug\AOBSignatureGenerator.Forms.HideShowMainForm.resources
