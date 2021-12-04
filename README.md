@@ -21,5 +21,5 @@ AOB Signature Generator
 
 Change Window Display Options
 ------------------------
-![This is an image](AOBSignatureGenerator/1rec.jpg)
-![This is an image](AOBSignatureGenerator/2rec.jpg)
+![This is an image](AOBSignatureGenerator/1rec.png)
+![This is an image](AOBSignatureGenerator/2rec.png)
