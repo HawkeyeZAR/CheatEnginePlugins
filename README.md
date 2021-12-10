@@ -25,4 +25,4 @@ Change Window Display Options
 
 Change Cheat Engines Window Title
 ---------------------------------
-![This is an image](AOBSignatureGenerator/SS3.png)
+![This is an image](AOBSignatureGenerator/ss3.png)
