@@ -12,14 +12,24 @@ using System.Windows.Forms;
 
 namespace AOBSignatureGenerator.Forms
 {
+    /// <summary>
+    /// HideShowMainForm
+    /// </summary>
     public partial class HideShowMainForm : Form
     {
+        /// <summary>
+        /// Hides Main Form or Shows main form
+        /// </summary>
         public HideShowMainForm()
         {
             InitializeComponent();
             
         }
-
+        /// <summary>
+        /// checkBoxOnTop_CheckedChanged event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void checkBoxOnTop_CheckedChanged(object sender, EventArgs e)
         {
             var lua = CESDK.CESDK.currentPlugin.sdk.lua;
@@ -48,6 +58,11 @@ namespace AOBSignatureGenerator.Forms
             }
         }
 
+        /// <summary>
+        /// checkBoxShowHide_CheckedChanged Event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void checkBoxShowHide_CheckedChanged(object sender, EventArgs e)
         {
             var lua = CESDK.CESDK.currentPlugin.sdk.lua;
@@ -76,6 +91,11 @@ namespace AOBSignatureGenerator.Forms
             }
         }
 
+        /// <summary>
+        /// Hide All Forms Event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void checkBoxHideAll_CheckedChanged(object sender, EventArgs e)
         {
             var lua = CESDK.CESDK.currentPlugin.sdk.lua;
@@ -87,15 +107,6 @@ namespace AOBSignatureGenerator.Forms
                     checkBoxShowHide.Enabled = false;
                     labelWindowStatus.ForeColor = System.Drawing.Color.Red;
                     labelWindowStatus.Text = "Status: All Windows are hidden";
-                    //lua.DoString(@"list = createStringlist()
-                    //                list.Sorted=true
-                    //                for i = 0, getFormCount() - 1 do
-                    //                local frm = getForm(i)
-                    //                if tostring(frm.getVisible())=='true' then
-                    //                   list.add(frm.Caption)
-                    //                   getForm(i).hide()
-                    //                 end
-                    //                end");
 
                     //atom0s from forum.cheatengine.org gave me a better way to write the above
                     lua.DoString(@"f = hideForms();");
@@ -107,11 +118,6 @@ namespace AOBSignatureGenerator.Forms
                     checkBoxShowHide.Enabled = true;
                     labelWindowStatus.ForeColor = System.Drawing.Color.Black;
                     labelWindowStatus.Text = "Status:";
-                    //lua.DoString(@"for i = 0,list.Count-1 do
-                    //                local frm = getForm(i)
-                    //                getForm(frm).show()
-                    //                end
-                    //                list.clear()");
                     lua.DoString(@"showForms(f);");
 
                 }
@@ -122,14 +128,40 @@ namespace AOBSignatureGenerator.Forms
             }
         }
 
+        /// <summary>
+        /// Changed Opcaity Slider Event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void slider_valueChanged(object sender, EventArgs e)
         {
             var lua = CESDK.CESDK.currentPlugin.sdk.lua;
             lua.DoString($@"local cnt = getFormCount();
                            for x = 0, cnt - 1 do
                                 local frm = getForm(x);
-                                frm.setLayeredAttributes(0x0000FF, {trackBarOpaque.Value}, 3)
+                                frm.setLayeredAttributes(0x0000FF, {255 - trackBarOpaque.Value}, 3)
                             end");
+        }
+
+        /// <summary>
+        /// buttonUpdateTitle_Click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonUpdateTitle_Click(object sender, EventArgs e)
+        {
+            var lua = CESDK.CESDK.currentPlugin.sdk.lua;
+            if (String.IsNullOrEmpty(textBoxUpdateTitle.Text))
+            {
+                MessageBox.Show("Title cannot be blank", "error");
+            }
+            else
+            {
+                lua.DoString($"getMainForm().Caption = '{textBoxUpdateTitle.Text}'");
+                lua.DoString($"getApplication().Title = '{textBoxUpdateTitle.Text}'");
+                labelWindowStatus.ForeColor = System.Drawing.Color.Black;
+                labelWindowStatus.Text = "Status: Cheat Engine Title Updated";
+            }
         }
     }
 }

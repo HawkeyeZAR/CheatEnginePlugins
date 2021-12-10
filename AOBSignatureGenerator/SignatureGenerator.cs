@@ -10,19 +10,34 @@ using AOBSignatureGenerator.Forms;
 
 namespace AOBSignatureGenerator
 {
+    /// <summary>
+    /// SignatureGenerator
+    /// </summary>
     public class SignatureGenerator : CESDKPluginClass
     {
+        /// <summary>
+        /// GetPluginName
+        /// </summary>
+        /// <returns>string</returns>
         public override string GetPluginName()
         {
             return "  Misc Plugins for CE 7.1+ - written by HawkeyeZAR";
         }
 
-        public override bool DisablePlugin() //called when disabled
+        /// <summary>
+        /// called when disabled
+        /// </summary>
+        /// <returns>bool</returns>
+        public override bool DisablePlugin()
         {
 
             return true;
         }
 
+        /// <summary>
+        /// EnablePlugin
+        /// </summary>
+        /// <returns>bool</returns>
         public override bool EnablePlugin() //called when enabled
         {
             //you can use sdk here
@@ -85,7 +100,9 @@ namespace AOBSignatureGenerator
             return true;
         }
 
-        //Create Main Form
+        /// <summary>
+        /// Creates Main Form
+        /// </summary>
         public void AOBSignatureForm()
         {
             int i = sdk.lua.GetTop();
@@ -101,7 +118,9 @@ namespace AOBSignatureGenerator
             }
         }
 
-        //Create Second Form for HideShow Main Screen function
+        /// <summary>
+        /// Create Second Form for HideShow Main Screen function
+        /// </summary>
         public void HideShowForm()
         {
             int i = sdk.lua.GetTop();
@@ -115,7 +134,11 @@ namespace AOBSignatureGenerator
                 MessageBox.Show(ex.Message);
             }
         }
-        int LoadGUI()
+        /// <summary>
+        /// LoadGUI
+        /// </summary>
+        /// <returns>int</returns>
+        public int LoadGUI()
         {
             if (sdk.lua.ToBoolean(1))
             {
@@ -126,7 +149,11 @@ namespace AOBSignatureGenerator
             return 1;
         }
 
-        int LoadShowHide()
+        /// <summary>
+        /// LoadShowHide
+        /// </summary>
+        /// <returns>int</returns>
+        public int LoadShowHide()
         {
             if (sdk.lua.ToBoolean(1))
             {
@@ -137,5 +164,6 @@ namespace AOBSignatureGenerator
             return 1;
 
         }
+
     }
 }
