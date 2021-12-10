@@ -20,7 +20,11 @@ AOB Signature Generator
 
 
 Change Window Display Options
-------------------------
+-----------------------------
 ![This is an image](AOBSignatureGenerator/1REC.png)
 
 ![This is an image](AOBSignatureGenerator/2REC.png)
+
+Change Cheat Engines Window Title
+---------------------------------
+![This is an image](AOBSignatureGenerator/SS3.png)
