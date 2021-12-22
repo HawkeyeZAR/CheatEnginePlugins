@@ -44,6 +44,7 @@ namespace AOBSignatureGenerator
             //sdk.lua.dostring("print('I am alive')");
             sdk.lua.Register("AOBSignature", LoadGUI);
             sdk.lua.Register("MainWindowDisplayUtils", LoadShowHide);
+            sdk.lua.Register("HexDecCalculator", LoadCalc);
 
             sdk.lua.DoString(@"local m=MainForm.Menu
                 local topm=createMenuItem(m)
@@ -61,7 +62,14 @@ namespace AOBSignatureGenerator
                 mf2.OnClick=function(s)
                 local i=MainWindowDisplayUtils(1)
                 end
-                topm.add(mf2)");
+                topm.add(mf2)
+
+                local mf3=createMenuItem(m)
+                mf3.Caption='Hex Decimal Calculator';
+                mf3.OnClick=function(s)
+                local i=HexDecCalculator(1)
+                end
+                topm.add(mf3)");
 
             //atom0s from forum.cheatengine.org gave me a better way to save the Forms
             sdk.lua.DoString(@"function hideForms()
@@ -135,7 +143,23 @@ namespace AOBSignatureGenerator
             }
         }
         /// <summary>
-        /// LoadGUI
+        /// Create third form, calculator form
+        /// </summary>
+        public void CalcForm()
+        {
+            int i = sdk.lua.GetTop();
+            Calculator calcShow = new Calculator();
+            try
+            {
+                System.Windows.Forms.Application.Run(calcShow);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        /// <summary>
+        /// LoadGUI - Runs AOBSignatureForm in new Thread
         /// </summary>
         /// <returns>int</returns>
         public int LoadGUI()
@@ -150,7 +174,7 @@ namespace AOBSignatureGenerator
         }
 
         /// <summary>
-        /// LoadShowHide
+        /// LoadShowHide - Runs HideShowForm in new Thread
         /// </summary>
         /// <returns>int</returns>
         public int LoadShowHide()
@@ -162,7 +186,21 @@ namespace AOBSignatureGenerator
                 thr.Start();
             }
             return 1;
+        }
 
+        /// <summary>
+        /// LoadCalc - Loads Calculator form in new thread
+        /// </summary>
+        /// <returns>int</returns>
+        public int LoadCalc()
+        {
+            if (sdk.lua.ToBoolean(1))
+            {
+                //run in a thread
+                Thread thr = new Thread(CalcForm);
+                thr.Start();
+            }
+            return 1;
         }
 
     }
