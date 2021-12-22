@@ -35,7 +35,7 @@ namespace AOBSignatureGenerator.Forms
             // Check if data is valid decimal
             if (IsValidDec(toHex))
             {
-                textBoxInput.Text = int.Parse(toHex).ToString("X");
+                textBoxInput.Text = Int64.Parse(toHex).ToString("X");
             }
         }
         /// <summary>
@@ -63,16 +63,16 @@ namespace AOBSignatureGenerator.Forms
         private bool IsValidDec(string data)
         {
 
-            int number;
-            bool isValid = int.TryParse(data, out number);
+            Int64 number;
+            bool isValid = Int64.TryParse(data, out number);
             // If isValid is true, return true
-            if (isValid)
+            if (isValid && number <= 9223372036854775807)
             {
                 return true;
             }
             else
             {
-                MessageBox.Show("Not a vaild decimal number", "Not Decimal");
+                MessageBox.Show("Not a vaild decimal number or number is too long", "Not Decimal");
                 return false;
             }
         }
@@ -88,17 +88,25 @@ namespace AOBSignatureGenerator.Forms
             try
             {
                 string toHex = Convert.ToInt64(data, 16).ToString();
-                int number;
+                Int64 number;
                 // Check if above hex data is numeric
-                bool isValid = int.TryParse(toHex, out number);
-                // If only numeric values, return true
-                if (isValid)
+                bool isValid = Int64.TryParse(toHex, out number);
+                if (number <= 9223372036854775807 && number > 0)
                 {
-                    return true;
+                    // If only numeric values, return true
+                    if (isValid)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Not a vaild hex number or hex value too long", "Not Hex Number");
+                        return false;
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Not a vaild hex number", "Not Hex Number");
+                    MessageBox.Show("Number is too long. Max:\nDec: 9223372036854775807\nHex: 7FFFFFFFFFFFFFFF", "Number to long");
                     return false;
                 }
             }
