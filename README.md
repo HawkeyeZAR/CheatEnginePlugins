@@ -30,5 +30,6 @@ Change Cheat Engines Window Title
 
 Basic Hex and Decimal Calculator
 ---------------------------------
-Max value that can be converted is 1.9 billion
+Update: Increased max values to Int64 (Dec:9223372036854775807 or Hex: 7FFFFFFFFFFFFFFF)
+
 ![This is an image](AOBSignatureGenerator/calc.png)
