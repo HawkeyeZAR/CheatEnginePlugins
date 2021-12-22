@@ -26,3 +26,8 @@ Change Window Display Options
 Change Cheat Engines Window Title
 ---------------------------------
 ![This is an image](AOBSignatureGenerator/ss3.png)
+
+
+Basic Hex and Decimal Calculator
+---------------------------------
+![This is an image](AOBSignatureGenerator/calc.png)
